@@ -1,0 +1,5 @@
+
+type Query {
+    product(productId: String):ProductInfo
+    Allproducts:AllProductsInfo
+}

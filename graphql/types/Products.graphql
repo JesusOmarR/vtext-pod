@@ -1,0 +1,148 @@
+type PaymentSystems {
+  id: Int
+  name: String
+  groupName: String
+  validator: String
+  stringId: String
+  template: String
+  requiresDocument: Boolean
+  isCustom: Boolean
+  description: String
+  requiresAuthentication: Boolean
+  dueDate: String
+  availablePayments: String
+}
+
+type SellerMerchantInstallments {
+  id: String
+  count: Int
+  hasInterestRate: Boolean
+  interestRate: Int
+  value: Int
+  total: Int
+}
+
+type InstallmentOptions {
+  paymentSystem: String
+  bin: String
+  paymentName: String
+  paymentGroupName: String
+  value: Int
+  installments: [Installments]
+}
+
+type PaymentOptions {
+  availableTokens: [String]
+  availableAccounts: [String]
+  giftCardMessages: [String]
+  giftCards: [String]
+  payments: [String]
+  paymentSystems: [PaymentSystems]
+  installmentOptions: [InstallmentOptions]
+}
+
+type DeliverySlaSamples {
+  Region: String
+  DeliverySlaPerTypes: [String]
+}
+
+type Installments {
+  Value: Int
+  InterestRate: Int
+  TotalValuePlusInterestRate: Int
+  NumberOfInstallments: Int
+  PaymentSystemName: String
+  PaymentSystemGroupName: String
+  Name: String
+}
+
+type DeliverySlaSamplesPerRegion {
+  Region: String
+  DeliverySlaPerTypes: [String]
+}
+
+type CommertialOffer {
+  Price: Int
+  ListPrice: Int
+  PriceWithoutDiscount: Int
+  FullSellingPrice: Int
+  RewardValue: Int
+  PriceValidUntil: String
+  AvailableQuantity: Int
+  IsAvailable: Boolean
+  Tax: Int
+  GetInfoErrorMessage: String
+  CacheVersionUsedToCallCheckout: String
+  PaymentOptions: PaymentOptions
+  DeliverySlaSamples: [DeliverySlaSamples]
+  ItemMetadataAttachment: [String]
+  BuyTogether: [String]
+  PromotionTeasers: [String]
+  Teasers: [String]
+  GiftSkuIds: [String]
+  DiscountHighLight: [String]
+  Installments: [Installments]
+  DeliverySlaSamplesPerRegion: [DeliverySlaSamplesPerRegion]
+}
+
+type Sellers {
+  sellerId: String
+  sellerName: String
+  addToCartLink: String
+  sellerDefault: Boolean
+  commertialOffer: CommertialOffer
+}
+
+type Images {
+  imageId: String
+  imageLabel: String
+  imageTag: String
+  imageUrl: String
+  imageText: String
+  imageLastModified: String
+}
+
+type ReferenceId {
+  Key: String
+  Value: String
+}
+
+type Items {
+  itemId: String
+  name: String
+  nameComplete: String
+  complementName: String
+  ean: String
+  measurementUnit: String
+  unitMultiplier: Int
+  modalType: String
+  isKit: Boolean
+  estimatedDateArrival: String
+  Videos: [String]
+  sellers: [Sellers]
+  images: [Images]
+  referenceId: [ReferenceId]
+}
+
+type AllProductsInfo {
+  productId: String
+  productName: String
+  brand: String
+  brandId: Int
+  brandImageUrl: String
+  linkText: String
+  productReference: String
+  productReferenceCode: String
+  categoryId: String
+  productTitle: String
+  metaTagDescription: String
+  releaseDate: String
+  link: String
+  description: String
+  items: [Items]
+  categoriesIds: [String]
+  categories: [String]
+}
+
+# Types with identical fields:
+# DeliverySlaSamples DeliverySlaSamplesPerRegion

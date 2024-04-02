@@ -1,0 +1,59 @@
+type ProductSpecification {
+  Id: Int
+  Name: String
+  Value: [String]
+}
+
+type SalesChannelOffer {
+  salesChannelId: String
+  salesChannelName: String
+  price: Int
+  listPrice: Int
+  priceWithoutDiscount: Int
+  availableQuantity: Int
+}
+
+type SellersOffers {
+  sellerId: String
+  sellerSkuId: String
+  salesChannelOffer: [SalesChannelOffer]
+}
+
+type MainImage {
+  imagePath: String
+}
+
+type MatchedOffers {
+  productId: String
+  skuId: String
+  nameComplete: String
+  sellersOffers: [SellersOffers]
+  mainImage: MainImage
+}
+
+type ProductInfo {
+  Id: Int
+  Name: String
+  DepartmentId: Int
+  CategoryId: Int
+  BrandId: Int
+  LinkId: String
+  RefId: String
+  IsVisible: Boolean
+  Description: String
+  DescriptionShort: String
+  ReleaseDate: String
+  KeyWords: String
+  Title: String
+  IsActive: Boolean
+  TaxCode: String
+  MetaTagDescription: String
+  SupplierId: String
+  ShowWithoutStock: Boolean
+  AdWordsRemarketingCode: String
+  LomadeeCampaignCode: String
+  Score: Int
+  productSpecification: [ProductSpecification]
+  matchedOffers: [MatchedOffers]
+  ListStoreId: [Int]
+}
